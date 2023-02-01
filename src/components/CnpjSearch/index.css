@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo {
+    width: 200px;
+    margin: 20px auto;
+   border-radius: 0cm;
+}
+
+.fundo-branco {
+    background-color: #ffffff !important;
+
+}
+
+.margin {
+    margin-top: 10vh;
+}
+
+.botao {
+    background-color: #2f9237 !important;
+    width: 100%;
+}
+
+.text {
+    color: #ffffff;
+}

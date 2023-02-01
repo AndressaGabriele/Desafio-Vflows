@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.border_color {
+    border-color: #e69e9e;
+}

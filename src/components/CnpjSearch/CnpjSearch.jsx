@@ -1,26 +1,27 @@
         import React, { useState, useEffect } from 'react';
+        import { cnpj } from 'cpf-cnpj-validator';
+        import {cnpjValidation} from '../../uteis/validatCnpj'
         import { useNavigate } from "react-router-dom";
         import './index.css';
 
         const CnpjSearch=() => {
             const [cnpj, setCnpj] = useState('');
             const navigate = useNavigate();
-                function test(value){
+                function validCnpj(value){
                     if (value === "") {
                         alert('preencha algo')
+                        return;
                     }
-                    const validcnpj = cnpjValidation(value)
-                    if (validcnpj) {
-                        navigate("/contracts");
+                    
+                    if (cnpjValidation(value)) {
+                        navigate('/contracts', {
+                            state: {
+                              cnpj,
+                            }
+                          });
                     }
                 }
                 
-                function cnpjValidation(value) {
-                   return true 
-                    
-                
-                    
-                }
                 
                 return (
                     <section className='w-full max-w-lg justify-center m-auto'>
@@ -36,7 +37,7 @@
                         placeholder="Digite aqui o seu CNPJ" />
                     </div>
                     <div className='flex items-center justify-between'>
-                        <button onClick={()=>test(cnpj)} className='botao text font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>Avançar</button>
+                        <button onClick={()=>validCnpj(cnpj)} className='botao text font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>Avançar</button>
                     </div>
                 </form>   
             <p className='text-center text-gray-500 text-xs'>
